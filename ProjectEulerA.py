@@ -1,3 +1,9 @@
+##############################################
+#   File:       ProjectEulerA.py
+#   Desc:       Solution to Problems 1 to 10
+#   Created by: Sujan Subendran
+##############################################
+
 # sum of multiples of 3 and 5 that are below a number
 def sumMultiples3and5(belowNum):
   sumMultiples = 0
@@ -161,16 +167,14 @@ def findSpecialPythagoreanTriplet():
 def findPrimeNumberSumBelowNum(num):
   sumTotal = 0
   for i in range(2, num):
-    if isPrimeNum(i):
+    if isPrimeNumber(i):
       sumTotal += i
   return sumTotal
 
 def isPrimeNumber(num):
-  flag = True
   for i in range(2, int(num**0.5 + 1)):
     if(num % i == 0): 
-      flag = False 
-      break
-  return flag
+      return False
+  return True
 
 # print(findPrimeNumberSumBelowNum(2000000))
