@@ -4,7 +4,7 @@
 #   Created by: Sujan Subendran
 ##############################################
 
-# find highly divisible triangular numbe
+# 12: find highly divisible triangular numbe
 def findHighlyDivisibleTriangleNum(divisors):
   count = 0
   triangleNum = 0
@@ -25,7 +25,7 @@ def countFactors(num):
 
 # print(findHighlyDivisibleTriangleNum(500))
 
-# find first 10 digits of sum for one hundred 50 digit numbers
+# 13: find first 10 digits of sum for one hundred 50 digit numbers
 def findSumOfNumberList(digits):
   numArr = []
   total = 0
@@ -39,7 +39,7 @@ def findSumOfNumberList(digits):
 
 # print(findSumOfNumberList(10))
 
-# Longest Collatz sequence under 1 million
+# 14: Longest Collatz sequence under 1 million
 def findLongestCollatzSequence(maxValue):
   collatz = [0, 0]
   for i in range(maxValue - 1, 499999, -1):
@@ -58,3 +58,50 @@ def findLongestCollatzSequence(maxValue):
   return collatz[0]
 
 # print(findLongestCollatzSequence(1000000))
+
+# 16: Sum of digits of 2^1000
+def sumOfDigits(num):
+  digits = str(num)
+  sumDigits = 0
+  for i in digits:
+    sumDigits += int(i)
+  return sumDigits
+
+# print(sumOfDigits(2**1000))
+
+# 18: maximum path sum (using dynamic programming)
+def findMaxPathSum():
+  arr = []
+  with open("dataset/problem18.txt") as f:
+    for line in f:
+      numbers = list(map(int, line.split()))
+      arr.append(numbers)
+  
+  for i in range(len(arr) - 2, -1, -1):
+    for j in range(0, len(arr[i]), 1):
+      arr[i][j] += max(arr[i + 1][j], arr[i + 1][j + 1])
+      # print("{0},{1}: ".format(i, j) + str(arr[i][j]))
+
+  return arr[0][0]
+
+# print(findMaxPathSum())
+
+# 549: Naive Divisibility of factorials
+cache = {}
+def calcS(n):
+  sumS = 0
+  for i in range(2, n + 1, 1):
+    sumS += calcSmallestNumFactorial(i)
+    # print(i)
+  return sumS
+
+def calcSmallestNumFactorial(i):
+  fact, m = 1, 1
+  while(fact % i != 0):
+    m += 1
+    if m in cache:
+      fact = cache[m]
+    else:
+      fact *= m
+      cache.update({m: fact})
+  return m

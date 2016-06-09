@@ -18,7 +18,10 @@ solutionSet = {
     "10": [findPrimeNumberSumBelowNum, 2000000],        # find sum of primes below 2 million
     "12": [findHighlyDivisibleTriangleNum, 500],        # find first triangular number with 500+ factors
     "13": [findSumOfNumberList, 10],                    # find first 10 digits of sum for one hundred 50 digit numbers
-    "14": [findLongestCollatzSequence, 1000000]         # Longest Collatz sequence under 1 million
+    "14": [findLongestCollatzSequence, 1000000],        # Longest Collatz sequence under 1 million
+    "16": [sumOfDigits, 2**1000],                       # Sum of digits in 2^1000
+    "18": [findMaxPathSum],                             # maximum path sum (using dynamic programming)
+    "549": [calcS, 10**8]                               # Naive Divisibility of factorials (brute-force: would take years)
   }
 
 def wrapper(func, args):
