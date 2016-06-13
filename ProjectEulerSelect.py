@@ -25,23 +25,22 @@ solutionSet = {
   }
 
 def wrapper(func, args):
-  start = timeit.default_timer()
-  result = func(*args)
-  print("Run Time: " + "{:9.5f}".format(timeit.default_timer() - start) + "s")
-  return result
-
+    start = timeit.default_timer()
+    result = func(*args)
+    print("Run Time: " + "{:9.5f}".format(timeit.default_timer() - start) + "s")
+    return result
 
 def selectSoln(solnId):
-  funcAndArgs = solutionSet.get(str(solnId), 0)
-  if funcAndArgs == 0:
-    return "ID not found!"
-  else:
-    return wrapper(funcAndArgs[0], funcAndArgs[1:])
+    funcAndArgs = solutionSet.get(str(solnId), 0)
+    if funcAndArgs == 0:
+        return "ID not found!"
+    else:
+        return wrapper(funcAndArgs[0], funcAndArgs[1:])
 
 if __name__ == "__main__":
-  print("Enter 0 to exit")
-  while(True):
-    selection = input("\nSelect Problem ID: ")
-    if selection == "0": 
-      break
-    print("Answer: " + str(selectSoln(selection)))    
+    print("Enter 0 to exit")
+    while(True):
+        selection = input("\nSelect Problem ID: ")
+        if selection == "0": 
+            break
+        print("Answer: " + str(selectSoln(selection)))
